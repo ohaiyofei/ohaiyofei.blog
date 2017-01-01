@@ -1,2 +1,2 @@
 #Ohaiyofei.blog
-Ohaiyofei博客的源码
+本项目是Ohaiyofei博客的源码部分，博客网站使用基于Node.js的Hexo作为生产引擎
