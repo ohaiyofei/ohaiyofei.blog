@@ -58,10 +58,10 @@ description: ......
 ### 托管博客源码
 为什么想托管自己的博客源码，如果换个新环境想写博客时，只要从github或者coding上clone一下，就可以接着写。为了托管博客的源码，我在github和Coding自己账户下各自建立项目，项目名称都是Ohaiyofei.blog,你可以安装自己的爱好给项目区名字。然后需要将本地博客的git仓库与这两个远程库建立关联，然后同时推送。在博客目录下使用以下命令即可：
 
-```
-git remote add all git@github.com:ohaiyofei/ohaiyofei.blog.git
-git remote set-url --add all git@git.coding.net:Ohaiyofei/Ohaiyofei.blog.git
-git push all --all
+```bash
+$ git remote add all git@github.com:ohaiyofei/ohaiyofei.blog.git
+$ git remote set-url --add all git@git.coding.net:Ohaiyofei/Ohaiyofei.blog.git
+$ git push all --all
 ```
 当然使用上述命令的前提是你已经用git来管理自己的博客源码了。
 
