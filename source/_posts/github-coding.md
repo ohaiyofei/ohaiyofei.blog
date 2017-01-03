@@ -8,7 +8,7 @@ description: ......
 
 ## 准备工作
 
-首先肯帝需要[Github](github.com)和[Coding](coding.net)两个网站注册账号，[Github](github.com)可以免费托管开源代码，私有库的建立需要付费，是国外的一个网站。[Coding](coding.net)可以免费托管开源代码，同时他让用户免费建立私有库，提供的服务挺好的，是国内的网站。
+首先在需要[Github](github.com)和[Coding](coding.net)两个网站注册账号，[Github](github.com)可以免费托管开源代码，私有库的建立需要付费，是国外的一个网站。[Coding](coding.net)可以免费托管开源代码，同时他让用户免费建立私有库，提供的服务挺好的，是国内的网站。
 
 ## Hexo搭建博客
 
