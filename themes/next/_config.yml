@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Mac,CentOS,Python"
+keywords: "CentOS,Python,Quant"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -139,7 +139,7 @@ social_icons:
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
 #avatar:
-
+avatar: /avatar.png
 
 # Table Of Contents in the Sidebar
 toc:
