@@ -72,4 +72,4 @@ deploy:
   type: git
   repo: 
           github: git@github.com:ohaiyofei/ohaiyofei.github.io.git,master
-          coding: git@git.coding.net:Ohaiyofei/Ohaiyofei.git,master    
+          coding: git@git.coding.net:Ohaiyofei/Ohaiyofei.coding.me.git,master    
