@@ -27,7 +27,7 @@ description: ......
 所以`/public` 文件夹中放置的文件，自然就是最终网页显示需要的静态网页文件，这个是因每个人博客的内容不同而不同，所以源码中不必要存在这个文件夹，这一点在我们查看` .gitignore`时会发现，这个文件夹是被忽略的，并不需要上传。当我们写好博客之后，执行`hexo g`生成网页文件，然后执行 `hexo deploy`，就会将`public`里面的文件push到github的`username.github.io`这个仓库和coding的`username.coding.me`这个仓库（如果你是同时托管），之后就能访问你的博客了。
 ### source
 这个文件夹是用来存放你博客的文本内容。
-打开`/source`之后，发现有一个`_post`文件夹，此文件夹中就是存放你所有博文内容的文件夹，博文是用markdown 来写的，写好之后，放入 _post即可。除此之外 `source` 还可以加入 `about`等文件夹，用来写 `关于我` 等页面的文本内容。
+打开`/source`之后，发现有一个`_post`文件夹，此文件夹中就是存放你所有博文内容的文件夹，博文是用markdown 来写的，写好之后，放入`_post`即可。除此之外 `source` 还可以加入 `about`等文件夹，用来写 `关于我` 等页面的文本内容。
 ### theme
 `theme` 自然就是放置博客主题的文件夹，比如源生的主题：`landscape`。自己通过`clone` 安装的三方主题也会出现在这里。
 ### _config.yml等
@@ -41,29 +41,31 @@ description: ......
    - **SSH协议**  使用加密通道**读写**仓库，无单次上传限制，需先设置“账户 SSH 公钥”，完成配对验证，推荐资深用户或经常推送大型文件用户使用
    - **Git协议** 网络传输协议里最快的，但缺乏授权机制，而且仅有**只读**权限，故仅适用于公开项目 clone 使用，
 
-我使用的是SSH协议，所以我先在github和coding上设置SSH密钥，具体怎么设置网上有很多教程。
+我使用的是SSH协议，所以我先在github和coding上设置SSH公钥，具体怎么设置网上有很多教程。可以使用`ssh -T git@github.com`或者`ssh -T git@git.coding.net`来查看自己是否配置成功，如果有`successfully`信息输出，就表示成功了啦，这样可以接着下面的工作
+
 ### 部署博客网页文件
 在github和Coding的自己账户下各自建立项目，项目名称分别为`username.github.io`和`username.coding.me`，username是你自己的账户名，我的是`Ohaiyofei`。然后将博客根目录下的_config.yml的deploy修改成类似以下代码即可：
-
-  ```
+```
    deploy:
    type: git
    repo: 
           github: git@github.com:ohaiyofei/ohaiyofei.github.io.git,master
-          coding: git@git.coding.net:Ohaiyofei/Ohaiyofei.coding.me.git,master 
-    
-  ```
- 然后`hexo g`和`hexo d`即可，因为同时部署到了两个服务器上，所以通过[http://ohaiyofei.github.io/](http://ohaiyofei.github.io/)和[http://ohaiyofei.coding.me/](http://ohaiyofei.coding.me/)这两个域名都能访问我的博客，如果绑定了自己的域名，还可以通过第三个域名访问自己的博客。
- 
+          coding: git@git.coding.net:Ohaiyofei/Ohaiyofei.coding.me.git,master   
+```
+
+然后`hexo g`和`hexo d`即可，因为同时部署到了两个服务器上，所以通过[http://ohaiyofei.github.io/](http://ohaiyofei.github.io/)和[http://ohaiyofei.coding.me/](http://ohaiyofei.coding.me/)这两个域名都能访问我的博客，如果绑定了自己的域名，还可以通过第三个域名访问自己的博客。
+上面的过程其实只是把自己博客的HTML文件上传到了github和coding,你可以查看自己的github和coding的仓库，里面只有HTML文件，没有博客的源码md文件，如果想把自己的博客源码也托管到github或者coding上面，就接着看下面，当然你也可以不托管公开，看自己的爱好，下面的内容就可以跳过啦。
+
 ### 托管博客源码
-为什么想托管自己的博客源码，如果换个新环境想写博客时，只要从github或者coding上clone一下，就可以接着写。为了托管博客的源码，我在github和Coding自己账户下各自建立项目，项目名称都是Ohaiyofei.blog,你可以安装自己的爱好给项目区名字。然后需要将本地博客的git仓库与这两个远程库建立关联，然后同时推送。在博客目录下使用以下命令即可：
+为什么想托管自己的博客源码，主要是如果换个新环境（比如换了电脑）想写博客时，只要从github或者coding上clone一下，就可以接着写,也起一种备份的作用。为了托管博客的源码，我在github和Coding自己账户下各自建立项目，项目名称都是Ohaiyofei.blog,你可以安装自己的爱好给项目取名字。首先需要在本地用git管理自己的博客源码，在需要管理的项目目录下输入下面三个命令`git init`、`git add .`、`git commit -m"First commit"`即可用git管理自己任何项目的源码啦，然后建自己本地git仓库与这两个远程库建立关联，然后同时推送。怎么关联单个远程仓库和推送很简单，可以自己Google。在博客目录下使用以下命令即可：
 
 ```bash
 $ git remote add all git@github.com:ohaiyofei/ohaiyofei.blog.git
 $ git remote set-url --add all git@git.coding.net:Ohaiyofei/Ohaiyofei.blog.git
 $ git push all --all
 ```
-当然使用上述命令的前提是你已经用git来管理自己的博客源码了。
+
+做完上面工作之后，独立写博客的平台基本上算比较完善啦，然后每次写完博客后，使用`hexo g`和`hexo d`把博客网页文件部署到github和coding，使用`git commit -am"*******"`和`git push all --all`托管自己的博客，可以把上面的命令写到一个脚本文件里，这里每次写完博客只有一个命令即可。
 
 ## 总结
 
