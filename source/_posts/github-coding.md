@@ -44,7 +44,7 @@ description: ......
 我使用的是SSH协议，所以我先在github和coding上设置SSH公钥，具体怎么设置网上有很多教程。可以使用`ssh -T git@github.com`或者`ssh -T git@git.coding.net`来查看自己是否配置成功，如果有`successfully`信息输出，就表示成功了啦，这样可以接着下面的工作
 
 ### 部署博客网页文件
-在github和Coding的自己账户下各自建立项目，项目名称分别为`username.github.io`和`username.coding.me`，username是你自己的账户名，我的是`Ohaiyofei`。然后将博客根目录下的_config.yml的deploy修改成类似以下代码即可：
+在github和Coding的自己账户下各自建立项目，项目名称分别为`username.github.io`和`username.coding.me`，**username一定要是你自己的github和coding账户名**，不然会出问题，因为github和coding只给自己的个人主页一个仓库。我的是`Ohaiyofei`。然后将博客根目录下的_config.yml的deploy修改成类似以下代码即可：
 ```
    deploy:
    type: git
@@ -65,7 +65,7 @@ $ git remote set-url --add all git@git.coding.net:Ohaiyofei/Ohaiyofei.blog.git
 $ git push all --all
 ```
 
-做完上面工作之后，独立写博客的平台基本上算比较完善啦，然后每次写完博客后，使用`hexo g`和`hexo d`把博客网页文件部署到github和coding，使用`git commit -am"*******"`和`git push all --all`托管自己的博客，可以把上面的命令写到一个脚本文件里，这里每次写完博客只有一个命令即可。
+做完上面工作之后，独立写博客的平台基本上算比较完善啦，然后每次写完博客后，使用`hexo g`和`hexo d`把博客网页文件部署到github和coding，使用`git commit -am"*******"`和`git push all --all`托管自己的博客，可以把上面的命令写到一个脚本文件里，这样每次写完博客只用一个命令即可。
 
 ## 总结
 
