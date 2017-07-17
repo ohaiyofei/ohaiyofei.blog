@@ -25,12 +25,12 @@ description: NFS/NIS
    * iptables -X
    * iptables -t nat -F
    
-##1.网络信息服务
+##网络信息服务
 
 ### NIS服务端设置
 ### NIS客户端设置
 
-##2.网络文件系统
+##网络文件系统
 ###  NFS服务端设置
 ###  NFS客户端设置
 
